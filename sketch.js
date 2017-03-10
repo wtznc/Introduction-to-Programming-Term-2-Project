@@ -15,8 +15,8 @@ var cols = 5;
 var rows = 5;
 var grid = new Array(cols);
 
-var openSet = [];
-var closedSet = []
+var openList = [];
+var closedList = [];
 var start;
 var end;
 var w, h;
@@ -28,38 +28,40 @@ function Spot(i, j) {
   this.g = 0;
   this.h = 0;
 
-  this.show = function() {
-    fill(255)
-    stroke(0)
-    rect(this.x * w, this.y * h, w, h)
+  this.show = function(col) {
+    fill(col);
+    noStroke();
+    rect(this.x * w, this.y * h, w - 1, h - 1);
   }
 }
+
 function setup() {
     createCanvas(400, 400);
-    console.log('A*')
+    console.log('A*');
+    
     w = width / cols;
-    h = height / rows
+    h = height / rows;
+    
     // Making a 2D array
     for (var i = 0; i < cols; i++){
         grid[i] = new Array(rows);
     }
 
     for (var i = 0; i < cols; i++) {
-      for (var j = 0; j < rows; j++)
+      for (var j = 0; j < rows; j++) {
         grid[i][j] = new Spot(i, j);
+      }
     }
+    
     start = grid[0][0];
-    end = grid[cols - 1][rows - 1]
-
-    openSet.push(start);
-
-
-    console.log(grid)
+    end = grid[cols - 1][rows - 1];
+    openList.push(start);
+    console.log(grid);
 
 }
 
 function draw() {
-  if (openSet.length > 0) {
+  if (openList.length > 0) {
     // we can keep going
   } else {
     // no solution
@@ -67,8 +69,16 @@ function draw() {
 
   background(0);
   for (var i = 0; i < cols; i++) {
-    for (var j = =; j < rows; j++) {
-      grid[i][j].show();
+    for (var j = 0; j < rows; j++) {
+      grid[i][j].show(color(255));
     }
   }
+    
+    for (var i = 0; i < closedList.length; i++) {
+        closedList[i].show(color(255, 0, 0));
+    }
+    
+    for (var i = 0; i < openList.length; i++) {
+        openList[i].show(color(0, 255, 0));
+    }
 }
