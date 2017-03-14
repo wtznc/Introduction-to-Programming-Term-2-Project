@@ -3,7 +3,7 @@
         Wojciech Tyziniec's Term 2 Project
         Introduction to Programming
         Goldsmiths, University of London 2017
-
+        
         f(n) = g(n) + h(n)
         openSet = [] <- nodes that still need to be evaluated
         closedSet = [] <- list of all the nodes that we have visited
