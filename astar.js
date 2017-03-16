@@ -104,7 +104,7 @@ function setup() {
             grid[i][j].addNeighbors(grid);
         }
     }
-    start = grid[0][0];
+    start = grid[5][10];
     end = grid[cols - 1][rows - 1];
     start.wall = false
     end.wall = false;
