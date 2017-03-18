@@ -3,7 +3,7 @@
         Wojciech Tyziniec's Term 2 Project
         Introduction to Programming
         Goldsmiths, University of London 2017
-
+        
         f(n) = g(n) + h(n)
         openSet = [] <- nodes that still need to be evaluated
         closedSet = [] <- list of all the nodes that we have visited
@@ -104,7 +104,7 @@ function setup() {
             grid[i][j].addNeighbors(grid);
         }
     }
-    start = grid[0][0];
+    start = grid[5][10];
     end = grid[cols - 1][rows - 1];
     start.wall = false
     end.wall = false;
